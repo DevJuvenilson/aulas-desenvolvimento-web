@@ -1,0 +1,47 @@
+<!-- 1.    Criar uma tabela html dinamicamente. Usuário informa a quantidade de linhas e colunas em dois campos distintos. Cria a tabela conforme os dados informados pelo usuário. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 01 - Tabela</title>
+</head>
+<body>
+    
+    <h1>Gerador de Tabelas</h1>
+
+    <form method="post" action="">
+        <label for="linhas">Digite a quantidade de linhas:</label>
+        <input type="number" id="linhas" name="linhas" required>
+        <br><br>
+        <label for="colunas">Digite a quantidade de colunas:</label>
+        <input type="number" id="colunas" name="colunas" required>
+        <br><br>
+        <label for="cor">Digite a cor de fundo:</label>
+        <input type="text" id="cor" name="cor" required>
+        <br><br>
+        <input type="submit" value="Calcular">
+    </form>
+
+    <?php
+        $linhas = $_POST['linhas'];
+        $colunas = $_POST['colunas'];
+        $cor = $_POST['cor'];
+        
+        echo "<br><br>";
+        echo "<table border=\"1\" width=\"15%\" height=\"auto\" cellspacing=\"0\" cellpadding=\"10\" align=\"center\" bgcolor=\"" . $cor . "\">";
+        
+        for ($i = 0; $i < $linhas; $i++) {
+            echo "<tr>";
+            for ($j = 0; $j < $colunas; $j++) {
+                echo "<td></td>";
+            }
+            echo "</tr>";
+        }
+        
+        echo "</table>";
+    ?>
+
+</body>
+</html>
